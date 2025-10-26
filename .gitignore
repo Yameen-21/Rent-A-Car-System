@@ -1,0 +1,29 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+TestResult*/
+
+# Packages
+*.nupkg
+*.snupkg
+*.nuspec
+*.dll
+*.exe
+
+# Others
+*.cache
+*.pdb
+*.dbmdl
+*.jfm
+*.bak
+*.tmp
+*.log

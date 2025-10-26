@@ -1,0 +1,58 @@
+<div style="background-color: #F8F8F8; min-height: 91vh;">
+    <div style="padding-top: 10px;"></div>
+    <div style="margin-top:10px;" class="child" *ngIf="car">
+      <div nz-row>
+        <div nz-col nzSpan="6">
+            <img style="height: 130px; width: 150px; border-radius: 10px;" [src]="car.processedImg" alt="profile" />
+        </div>
+        <div nz-col nzSpan="18">
+            <h2 style="cursor: pointer; color: #003973;">{{car.brand}} - {{car.name}}</h2>
+            <hr>
+                <h4>Price : <b>${{car.price}}</b>   
+                    - Color : <b>{{car.color}}</b>   
+                    - Transmission : <b>{{car.transmission}}</b>
+                    - Type : <b>{{car.type}}</b> 
+                    - Year : <b>{{car.modelYear | date: 'yyyy'}}</b>
+                </h4>
+            <hr/>                
+        </div>
+      </div>
+    </div>
+
+
+    <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+        <div class="dashboard-filter">
+            <form [formGroup]="bookACarForm">
+                <div class="filter-grid">
+                    <div class="filter-select-dropdown filter-fields-width">
+
+                        <nz-form-item>
+                            <nz-form-label [nzSpan]="0" nzFor="From Date">From Date</nz-form-label>
+                            <nz-form-control [nzSpan]="0">
+                                <nz-date-picker formControlName="fromDate" style="width: 100%;" 
+                                nzPlaceHolder="From Date" name="From Date" [nzFormat]="dateFormat" id="From Date">
+                                </nz-date-picker>
+                            </nz-form-control>
+                        </nz-form-item>
+
+                        <nz-form-item>
+                            <nz-form-label [nzSpan]="0" nzFor="To Date">To Date</nz-form-label>
+                            <nz-form-control [nzSpan]="0">
+                                <nz-date-picker formControlName="toDate" style="width: 100%;" 
+                                nzPlaceHolder="To Date" name="To Date" [nzFormat]="dateFormat" id="To Date">
+                                </nz-date-picker>
+                            </nz-form-control>
+                        </nz-form-item>
+
+                    </div>
+
+                    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'"
+                        (click)="bookCar(bookACarForm.value)"> Book Car
+                    </button>
+
+                </div>
+            </form>
+        </div>
+    </nz-spin>
+</div>
+  

@@ -1,0 +1,49 @@
+.child {
+    padding: 20px;
+    width: 780px;
+    background-color: white;
+    background: rgb(245, 243, 243);
+    box-shadow: 1px 1px 15px -7px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+  
+  .filter-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filter-select-dropdown {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .filter-select-dropdown > nz-form-item {
+    flex: 1 1 50%;
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Adjust spacing between label and input */
+  }
+  
+  nz-form-label {
+    flex: 0 0 auto; /* Ensure the label takes only necessary space */
+    width: 120px; /* Fixed width for proper alignment */
+    text-align: left; /* Align the label to the left */
+    font-weight: bold; /* Optional: make labels bold for better visibility */
+    margin-left: 30px;
+  }
+  
+  nz-form-control {
+    flex: 1; /* Make the input field take the remaining space */
+    margin-right: 30px;
+  }
+  
+  .filter-grid button {
+    align-self: center;
+    background-color: #003973;
+  }
+  

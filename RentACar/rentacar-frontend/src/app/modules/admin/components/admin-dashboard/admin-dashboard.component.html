@@ -1,0 +1,25 @@
+<div style="background-color: #F8F8F8; min-height: 91vh;">
+    <div style="padding-top: 10px;"></div>
+    <div style="margin-top:10px;" class="child" *ngFor="let car of cars">
+      <div nz-row>
+        <div nz-col nzSpan="6">
+            <img style="height: 130px; width: 150px; border-radius: 10px;" [src]="car.processedImg" alt="profile" />
+        </div>
+        <div nz-col nzSpan="18">
+            <h2 style="cursor: pointer; color: #003973;">{{car.brand}} - {{car.name}}</h2>
+            <hr>
+                <h4>Price : <b>${{car.price}}</b>   
+                    - Color : <b>{{car.color}}</b>   
+                    - Transmission : <b>{{car.transmission}}</b>
+                    - Type : <b>{{car.type}}</b> 
+                    - Year : <b>{{car.modelYear | date: 'yyyy'}}</b>
+                </h4>
+            <hr/>
+            <div style="float: right;">
+                <button nz-button style="margin-left: 10px; background-color: #003973;" nzSize="small" [nzType]="'primary'" routerLink="/admin/car/{{car.id}}/edit">Update</button>
+                <button nz-button style="margin-left: 10px;" nzSize="small" [nzType]="'primary'" (click)="deleteCar(car.id)" nzDanger>Delete</button>
+            </div>                
+      </div>
+    </div>
+</div>
+  

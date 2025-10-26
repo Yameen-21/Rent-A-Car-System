@@ -1,0 +1,40 @@
+<nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+    <nz-table #basicTable [nzData]="bookedCars" [nzPageSize]="20" [nzShowPagination]="'false'">
+      <thead>
+        <tr>
+          <th style="font-weight: bold; color: #003973;">Username</th>
+          <th style="font-weight: bold; color: #003973;">Email</th>
+          <th style="font-weight: bold; color: #003973;">From</th>
+          <th style="font-weight: bold; color: #003973;">To</th>
+          <th style="font-weight: bold; color: #003973;">Days</th>
+          <th style="font-weight: bold; color: #003973;">Price</th>
+          <th style="font-weight: bold; color: #003973;">Status</th>
+          <th style="font-weight: bold; color: #003973;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of basicTable.data">
+          <td>{{booking.username}}</td>
+          <td>{{booking.email}}</td>
+          <td>{{booking.fromDate | date: 'MMM d, y'}}</td>
+          <td>{{booking.toDate | date: 'MMM d, y'}}</td>
+          <td>{{booking.days}}</td>
+          <td>{{booking.amount}}</td>
+          <td>
+            <strong [ngStyle]="{'color': booking.bookCarStatus === 'APPROVED' ? 'green' : booking.bookCarStatus === 'REJECTED' ? 'blue' : ''}">
+              {{ booking.bookCarStatus }}
+            </strong>
+          </td>
+          <td>
+            <span *ngIf="booking.bookCarStatus == 'PENDING'">
+                <button nz-button nzSize="small" nzType="primary" 
+                 style="margin-left: 10px; background-color: #003973;" (click)="changeBookingStatus(booking.id, 'Approve')">Approve</button>
+                <button nz-button nzSize="small" nzType="primary" nzDanger
+                 style="margin-left: 10px;" (click)="changeBookingStatus(booking.id, 'Reject')">Reject</button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </nz-spin>
+  
